@@ -1,12 +1,12 @@
-<p><%= @restaurant.name %></p>
+<h2 style="color:#980a0a; text-shadow:1px 1px 3px rgba(0,0,0,.3);"><%= @restaurant.name %></h2>
 <p><%= @restaurant.description %></p>
 
 
 <%- @restaurant.reviews.each do |review |  %>
 
     <ul style="background-color:#d4d4d4; padding:7px; border-radius:10px;">
-      <li style="list-style:none;">Rating:  <%= review.rating %></li>
-      <li style="list-style:none;">Description: <%= review.thoughts %></li>
+      <li style="list-style:none;"><span style="color:#980a0a;">Rating:</span>  <%= review.rating %></li>
+      <li style="list-style:none;"><span style="color:#980a0a;">Description:</span> <%= review.thoughts %></li>
     </ul>
 
 <% end %>
