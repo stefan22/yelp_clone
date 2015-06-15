@@ -4,7 +4,7 @@
 
 <%- @restaurant.reviews.each do |review |  %>
 
-    <ul style="background-color:#d4d4d4; padding:7px; border-radius:10px;">
+    <ul style="background-color:#d4d4d4; box-shadow:1px 1px 3px rgba(0,0,0,.1); padding:7px; border-radius:10px;">
       <li style="list-style:none;"><span style="color:#980a0a;">Rating:</span>  <%= review.rating %></li>
       <li style="list-style:none;"><span style="color:#980a0a;">Description:</span> <%= review.thoughts %></li>
     </ul>
