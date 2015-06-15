@@ -1,2 +1,12 @@
 <p><%= @restaurant.name %></p>
 <p><%= @restaurant.description %></p>
+
+
+<%- @restaurant.reviews.each do |review |  %>
+
+    <ul style="background-color:#d4d4d4; padding:7px; border-radius:10px;">
+      <li style="list-style:none;">Rating:  <%= review.rating %></li>
+      <li style="list-style:none;">Description: <%= review.thoughts %></li>
+    </ul>
+
+<% end %>
