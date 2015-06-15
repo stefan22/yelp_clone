@@ -23,6 +23,31 @@ Things you may want to cover:
 
 * ...
 
+gem install rails
+rails new yelp_clone -d postgresql -T
+bin/rails server
+bin/rake db:create
+
+gems to add:
+
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+end
+
+bundle
+
+bin/rails generate rspec:install
+
+--color
+--format documentation
+--require spec_helper
+
+Then, in your spec/rails_helper.rb file add the following
+require 'capybara/rails'
+
+
+
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
