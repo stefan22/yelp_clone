@@ -1,11 +1,14 @@
 <% if @restaurants.any? %>
   <% @restaurants.each do |restaurant| %>
     <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
-    <%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %>
-
+    <ul>
+      <li style="list-style:none;"><%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %></li>
+      <li style="list-style:none;"><%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete %></li>
+    </ul>
   <% end %>
 <% else %>
   <h1>No restaurants yet</h1>
 <% end %>
-
-<a href="restaurants/new">Add a restaurant</a>
+<br/>
+<a style="background-color:#d8d8d8; border-radius:10px;
+          padding:10px;" href="restaurants/new">Add a restaurant</a>
