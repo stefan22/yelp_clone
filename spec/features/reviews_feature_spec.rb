@@ -14,4 +14,12 @@ feature 'reviewing' do
      expect(page).to have_content('so so')
   end
 
+  scenario 'deleting restaurant with reviews' do
+    visit '/restaurants'
+    click_link 'Delete KFC'
+    expect(page).to have_content 'Restaurant deleted successfully'
+  end
+
+
+
 end
