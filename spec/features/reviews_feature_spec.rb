@@ -16,8 +16,14 @@ feature 'reviewing' do
 
   scenario 'deleting restaurant with reviews' do
     visit '/restaurants'
-    click_link 'Delete KFC'
+  click_link 'Delete KFC'
+    expect(page).not_to have_content 'KFC'
     expect(page).to have_content 'Restaurant deleted successfully'
+  end
+
+  describe Review do
+    it { should belong_to(:restaurant)}
+
   end
 
 
