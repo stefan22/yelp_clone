@@ -46,7 +46,17 @@ bin/rails generate rspec:install
 Then, in your spec/rails_helper.rb file add the following
 require 'capybara/rails'
 
+loginApp
+=========
 
+App ID:
+481465142022597
+
+App Secret:
+8c33acdb00e3349df5123485d315f140
+
+Client Token
+ac08a75e02e7129dd75de9c86cb2dc8c
 
 
 Please feel free to use a different markup language if you do not plan to run

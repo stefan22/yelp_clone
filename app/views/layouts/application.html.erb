@@ -5,19 +5,32 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <style>
+  .hide {
+
+  }
+</style>
 </head>
 <body>
+
+
+
 <section style="width:500px; margin:0 auto; background-color:#f8f8f8;
 border-radius:10px; border-color:1px solid #f4f4f4; padding:1em;
 box-shadow:1px 1px 3px rgba(0,0,0,.3);">
+
 <h1 style="text-align:center;">Yelp Clone</h1>
 <%= notice %>
+<%= alert %>
 
 <% if user_signed_in? %>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <% else %>
-  <%= link_to "Sign in", new_user_session_path %>
-  <%= link_to "Sign up", new_user_registration_path %>
+  <div class="hide">
+    <%= link_to "Sign in", new_user_session_path %>
+    <%= link_to "Sign up", new_user_registration_path %>
+    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+  </div>
 <% end %>
 
 <%= yield %>
