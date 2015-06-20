@@ -2,12 +2,15 @@
   <% @restaurants.each do |restaurant| %>
     <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
     <ul>
-      <li style="list-style:none;"><%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %></li>
-      <li style="list-style:none;"><%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete %></li>
-      <li style="list-style:none;"><%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant) %></li>
+      <% if current_user %>
+        <% if restaurant.user_id == current_user.id %>
+          <li style="list-style:none;"><%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %></li>
+          <li style="list-style:none;"><%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete %></li>
+        
+        <% end %>
+      <% end %>
     </ul>
     <h4>Reviews for <%= restaurant.name %></h4>
-
       <% if restaurant.reviews.any? %>
         <ul>
           <% restaurant.reviews.each do |review| %>
@@ -19,15 +22,21 @@
       <% else %>
         <p>No reviews.</p>
       <% end %>
+    <p><%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant) %></p>
 
-
-
-  <% end %>
+<% end %>
 <% else %>
   <h1>No restaurants yet</h1>
 <% end %>
 <br/>
+<%if user_signed_in?%>
+
 <a style="background-color:#d8d8d8; border-radius:10px;
           padding:10px;" href="restaurants/new">Add a restaurant</a>
+<% else%>
+  <p style="background-color:red; border:1px solid #fdfdfd; border-radius:10px; width:50%; padding:5px; color:#fff;">
+    No restaurant for you! Sign in first!</p>
+
+  <% end %>
 
           <!-- <%= link_to 'Add a restaurant', new_restaurant_path %> -->
